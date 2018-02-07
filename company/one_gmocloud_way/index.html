@@ -431,10 +431,13 @@
 		</div>
 	</div>
 </header> -->
-<div id="contents">
+	<div id="fullpage">
+	<div id="contents">
+			<? include('../../template/inc/header.php');  ?>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.5/jquery.fullpage.min.js"></script>
 	<script src="js/scrolloverflow.min.js"></script>
 	<script src="js/ScrollMagic.min.js"></script>
+	<script src="js/debug.addIndicators.js"></script>
 	<script type="text/javascript">
 			$(document).ready(function() {
 				var w = $(window).width();
@@ -456,33 +459,41 @@
 				}
 
 				var controller = new ScrollMagic.Controller();
+
 				var scene = new ScrollMagic.Scene({
 					triggerElement :"#trigger1"
 				})
-				.setClassToggle('#sec02side','open-left')
+				.setClassToggle('#sec02under','open-left')
 				.addTo(controller);
 
 				var scene = new ScrollMagic.Scene({
-					triggerElement :"#trigger2"
+					trggerElement:'#pin-trigger1'
+					// duration:100
 				})
-				.setClassToggle('#sec03side','open-right')
+				.setPin('#pin1')
+				// .addIndicators({name:'1(duration:100)'})
 				.addTo(controller);
 
-				var scene = new ScrollMagic.Scene({
-					triggerElement :"#trigger3"
-				})
-				.setClassToggle('#sec02-ttl-side','move-right')
-				.addTo(controller);
+				// var scene = new ScrollMagic.Scene({
+				// 	triggerElement :"#trigger2"
+				// })
+				// .setClassToggle('#sec02-ttl-side','move-right')
+				// .addTo(controller);
 
-				var scene = new ScrollMagic.Scene({
-					triggerElement :"#trigger4"
-				})
-				.setClassToggle('#sec03-ttl-side','move-left')
-				.addTo(controller);
+				// var scene = new ScrollMagic.Scene({
+				// 	triggerElement :"#trigger2"
+				// })
+				// .setClassToggle('#sec03side','open-right')
+				// .addTo(controller);
+
+
+				// var scene = new ScrollMagic.Scene({
+				// 	triggerElement :"#trigger4"
+				// })
+				// .setClassToggle('#sec03-ttl-side','move-left')
+				// .addTo(controller);
 			});
 	</script>
-	<? include('../../template/inc/header.php');  ?>
-	<div id="fullpage">
 		<section class="fullpage-section" id="sec01">
 		<div class="circle-sec">
 			<div class="sec01-circle-box"><span class="sec01-circle"></span></div>
@@ -494,21 +505,27 @@
 				</div>
 			</div>
 		</div>
+		<span id="pin-trigger1"></span>
 		<a href="#sec02" class="show-for-medium"><span class="sec-arrow" data-page="2"></span></a>
 		</div>
 		</section>
 		<section class="fullpage-section" id="sec02-ttl">
-		<!-- <span  id="trigger3"></span> -->
-		<span  id="trigger1"></span>
-		<div id="sec02-ttl-side" class="sec-inner">
-			<div class="side side-right mission">
-				<div class="side-inner">
-				<h2 class="center sec02-h2"><span class="en ttl-line">Mission</span><span class="ttl-sub">私たちの&quot;使命&quot;</span></h2>
-				<p class="center slogan">コトでITを変えていく。</p>
+		<section>
+			<div id="sec02-ttl-center" class="sec-inner">
+<!-- 				<div class="mission-hight"></div>
+ -->				<div id="sec02up" class="side side-right mission">
+				<div id="pin1">
+					<div class="side-inner"  id="pin1">
+					<h2 class="center sec02-h2"><span class="en ttl-line">Mission</span><span class="ttl-sub">私たちの&quot;使命&quot;</span></h2>
+					<p class="center slogan">コトでITを変えていく。</p>
+					</div>
+				</div>
 				</div>
 			</div>
-		</div>
-				<div id="pin1" class="side side-left statement">
+		</section>
+			<span  id="trigger1"></span>
+			<div id="sec02under" class="sec-inner">
+				<div class="side side-left statement">
 					<div class="side-inner">
 					<h3 class="ttl-line en center">Statement</h3>
 					<p>この地球の果てから果てまで、<br>すべての人に私たちのサービスを届けたい。</p>
@@ -517,41 +534,52 @@
 					<p>それは未来永劫にわたる、私たちの使命です。</p>
 					</div>
 				</div>
+				<div class="side right-side mission">
+					<div class="side-inner">
+					<h2 class="center sec02-h2"><span class="en ttl-line">Mission</span><span class="ttl-sub">私たちの&quot;使命&quot;</span></h2>
+					<p class="center slogan">コトでITを変えていく。</p>
+					</div>
+				</div>
+			</div>
+			
+		
 		</section>
 		<section class="fullpage-section" id="sec03-ttl">
-			<div id="sec03-ttl-side" class="sec-inner">
-			<div class="side side-left vision">
-				<div class="side-inner">
-				<h2 class="center sec03-h2"><span class="en ttl-line">Vision</span><span class="ttl-sub">私たちの&quot;目指す姿&quot;</span></h2>
-				<p class="en center slogan">One & 1st</p>
-				</div>
-			</div>
-			</div>
-			<span  id="trigger2"></span>
-			<!-- <span id="trigger4"></span> -->
-			<div id="sec03side" class="sec-inner">
-			<div id="pin2" class="side side-right statement">
-				<div class="side-inner">
-				<h3 class="ttl-line en center">Statement</h3>
-				<div class="statement-box-area">
-					<div class="one-1st-box">
-						<h4 class="box-ttl en">One</h4>
-					<p>ひとつになろう。</p>
-					<p>インターネットという広大な空の下、<br>新たに生まれた事業は、<br>それぞれに大きくなってきました。</p>
-					<p>これからも画期的な価値を社会に提供していきたい。<br>そのためにもひとつという思いを共有し、<br>シナジーを生み出せれば、<br>もっと面白いこと、もっとすごいことが、きっとできる。</p>
-					</div>
-					<div class="one-1st-box">
-						<h4 class="box-ttl en">1st</h4>
-					<p>失敗を恐れない。</p>
-					<p>はじめては誰でもこわい。<br>誰も挑んだことがないところに、ワクワクがある。</p>
-					<p>誰もやったことのないコト<br>見慣れたものの中にある誰も気づいていないコト</p>
-					<p>これまでも、これからも、<br>私たちは意欲的に「はじめて」を追い求め、<br>日本初、世界初を生み出していきます。 </p>
+			<div>
+				<div id="sec03-ttl-side" class="sec-inner">
+				<div class="side side-left vision">
+					<div class="side-inner">
+					<h2 class="center sec03-h2"><span class="en ttl-line">Vision</span><span class="ttl-sub">私たちの&quot;目指す姿&quot;</span></h2>
+					<p class="en center slogan">One & 1st</p>
 					</div>
 				</div>
+				</div>
+				<span  id="trigger2"></span>
+				<!-- <span id="trigger4"></span> -->
+				<div id="sec03side" class="sec-inner">
+				<div id="pin2" class="side side-right statement">
+					<div class="side-inner">
+					<h3 class="ttl-line en center">Statement</h3>
+					<div class="statement-box-area">
+						<div class="one-1st-box">
+							<h4 class="box-ttl en">One</h4>
+						<p>ひとつになろう。</p>
+						<p>インターネットという広大な空の下、<br>新たに生まれた事業は、<br>それぞれに大きくなってきました。</p>
+						<p>これからも画期的な価値を社会に提供していきたい。<br>そのためにもひとつという思いを共有し、<br>シナジーを生み出せれば、<br>もっと面白いこと、もっとすごいことが、きっとできる。</p>
+						</div>
+						<div class="one-1st-box">
+							<h4 class="box-ttl en">1st</h4>
+						<p>失敗を恐れない。</p>
+						<p>はじめては誰でもこわい。<br>誰も挑んだことがないところに、ワクワクがある。</p>
+						<p>誰もやったことのないコト<br>見慣れたものの中にある誰も気づいていないコト</p>
+						<p>これまでも、これからも、<br>私たちは意欲的に「はじめて」を追い求め、<br>日本初、世界初を生み出していきます。 </p>
+						</div>
+					</div>
 
-				<p class="center">挑戦者であること、共に挑戦する仲間がいることを、<br>私たちは忘れません。</p>
+					<p class="center">挑戦者であること、共に挑戦する仲間がいることを、<br>私たちは忘れません。</p>
+					</div>
 				</div>
-			</div>
+				</div>
 			</div>
 		</section>
 		<section class="fullpage-section" id="sec04">
@@ -565,8 +593,12 @@
 			</div>
 			</div>
 		</section>
-		<section class="fullpage-section fp-auto-height fotter-sec" id="sec05">
-			<!-- <footer class="global-footer">
+		</div>
+		<!-- / #contents -->
+	</div>
+	<!-- / #fullpage -->
+<!-- 	<section class="fullpage-section fp-auto-height fotter-sec" id="sec05">
+ -->			<!-- <footer class="global-footer">
 			<p class="page-top show-for-medium"><a href="#page">↑<br>PAGE<br>TOP</a></p>
 			<div class="grid-container">
 				<div class="grid-x nav-footer">
@@ -672,9 +704,7 @@
 <script type="text/javascript" charset="UTF-8" src="//cache.img.gmo.jp/common_header/script.js" async></script>
  -->
 			<? include('../../template/inc/footer.php'); ?>
-		</section>
-	</div>
-</div>
+		<!-- </section> -->
 </div>
 
 </body>
